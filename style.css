@@ -1,0 +1,71 @@
+/* navigation */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 8px;
+    text-decoration: none;
+}
+
+li a:hover {
+    text-decoration: underline;
+}
+
+.active {
+    text-decoration: underline;
+}
+
+.nav {
+    font-size: 20px;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.links-nav {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.logo-nav {
+    display: flex;
+    width: 792px;
+}
+
+/* images */
+#logo, #logoL {
+    width: 50px;
+}
+
+#logoL {
+    width: 200px;
+}
+
+/* text */
+#logoTitle {
+    font-size: 30px;
+}
+
+/* container */
+.welcome-container {
+    display: flex;
+    color: white;
+    background-image: url("../Assets/home-page-banner.jpg");
+    min-height: 592px;
+    background-repeat: no-repeat;
+    font-size: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome {
+    filter: brightness(100%);
+}
