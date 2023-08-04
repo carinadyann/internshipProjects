@@ -1,3 +1,11 @@
+/* * {
+    border: 1px solid red;
+} */
+
+body {
+    margin: 0;
+}
+
 /* navigation */
 ul {
     list-style-type: none;
@@ -32,6 +40,7 @@ li a:hover {
 .links-nav {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     width: 100%;
 }
 
@@ -49,9 +58,17 @@ li a:hover {
     width: 200px;
 }
 
+#animals {
+    width: 100%;
+}
+
 /* text */
 #logoTitle {
     font-size: 30px;
+}
+
+.welcome {
+    filter: brightness(100%);
 }
 
 /* container */
@@ -66,6 +83,36 @@ li a:hover {
     align-items: center;
 }
 
-.welcome {
-    filter: brightness(100%);
+.info-container {
+    display: flex;
+    color: black;
+}
+
+.info {
+    background-color: lightgray;
+    padding: 20px;
+    width: 100%;
+    font-size: 20px;
+}
+
+.pet-flex {
+    justify-content: space-evenly;
+}
+
+.pet-container1, .pet-container2, .pet-container3 {
+    background-image: url("../Assests/col-1-img.jpg");
+    border-radius: 25px;
+    text-transform: capitalize;
+}
+
+.pet-container1 {
+    background-image: url("../Assests/col-1-img.jpg");
+}
+
+.pet-container2 {
+    background-image: url("../Assests/col-2-img.jpg");
+}
+
+.pet-container3 {
+    background-image: url("../Assests/col-3-img.jpg");
 }
