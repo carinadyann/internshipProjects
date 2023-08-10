@@ -83,6 +83,10 @@ h2 {
     flex: 100%;
 }
 
+p {
+    padding: 20px;
+}
+
 /* container */
 .welcome-container {
     display: flex;
@@ -110,7 +114,6 @@ h2 {
 .info {
     flex: 50%;
     background-color: #E5E5E5;
-    padding: 20px;
     width: 100%;
     font-size: 20px;
 }
@@ -118,28 +121,28 @@ h2 {
 .pet-flex {
     display: flex;
     justify-content: space-evenly;
+    gap: 15px;
 }
 
 .pet-container1, .pet-container2, .pet-container3 {
     display: flex;
     color: white;
-    background-image: linear-gradient(0deg, black, transparent 60%), url("../Assets/col-1-img.jpg");
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../Assets/col-1-img.jpg");
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
     font-size: 40px;
     justify-content: center;
     align-items: center;
-    border-radius: 25px;
     transition: all 1s;
 }
 
 .pet-container2 {
-    background-image: linear-gradient(0deg, black, transparent 60%), url("../Assets/col-2-img.jpg");
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../Assets/col-2-img.jpg");
 }
 
 .pet-container3 {
-    background-image: linear-gradient(0deg, black, transparent 60%), url("../Assets/col-3-img.jpg");
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../Assets/col-3-img.jpg");
 }
 
 .image-holder {
@@ -147,7 +150,7 @@ h2 {
     width: 275px;
     overflow: hidden;
     position: relative;
-    border-radius: 25px;
+    border-radius: 10px;
 }
 
 .pet-container1:hover, .pet-container2:hover, .pet-container3:hover {
@@ -195,7 +198,7 @@ textarea {
     width: auto;
 }
 
-/* for mobile */
+/* mobile screen adjustment */
 @media only screen and (max-width: 1200px) {
     /* text */
     .welcome-container {
@@ -232,9 +235,31 @@ textarea {
         align-items: center;
         gap: 25px;
     }
+
+    .image-holder {
+        height: 237.9px;
+        width: 357.5px;
+    }
+
+    /* images */
+    .pet-container1:hover, .pet-container2:hover, .pet-container3:hover {
+        transform: scale(1.1);
+    }
+
+    .pet-container1, .pet-container2, .pet-container3 {
+        background-size: 357.5px 237.9px;
+    }
 }
 
 @media only screen and (max-width: 709px) {
+    /* text */
+    .welcome-container {
+        font-size: 55px;
+    }
+    /* image */
+    #logoL {
+        width: 20%;
+    }
     /* form */
     input {
         flex-basis: 44%;
@@ -242,8 +267,19 @@ textarea {
 }
 
 @media only screen and (max-width: 595px) {
+    /* text */
+    .welcome-container {
+        font-size: 45px;
+    }
     /* form */
     input {
         flex-basis: 100%;
     }
+}
+
+/* mobile menu containers */
+.mobile-container {
+    max-width: 480px;
+    background-color: white;
+    height: 500px;
 }
