@@ -2,8 +2,9 @@
     border: 1px solid red;
 } */
 
-body {
+body, a {
     margin: 0;
+    text-decoration: none;
 }
 
 /* navigation */
@@ -15,10 +16,6 @@ ul {
     display: flex;
 }
 
-a {
-    text-decoration: none;
-}
-
 li a {
     display: block;
     color: black;
@@ -27,11 +24,7 @@ li a {
     text-decoration: none;
 }
 
-li a:hover {
-    text-decoration: underline;
-}
-
-.active {
+li a:hover, .active {
     text-decoration: underline;
 }
 
@@ -135,6 +128,7 @@ p {
     justify-content: center;
     align-items: center;
     transition: all 1s;
+    background-size: 412.5px 274.5px;
 }
 
 .pet-container2 {
@@ -146,8 +140,8 @@ p {
 }
 
 .image-holder {
-    height: 183px;
-    width: 275px;
+    height: 274.5px;
+    width: 412.5px;
     overflow: hidden;
     position: relative;
     border-radius: 10px;
@@ -209,6 +203,12 @@ textarea {
     .info {
         font-size: 15px;
     }
+
+    .pet-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
 }
 
 @media only screen and (max-width: 1168px) {
@@ -230,20 +230,9 @@ textarea {
         justify-content: center;
     }
 
-    .pet-flex {
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-    }
-
     .image-holder {
         height: 237.9px;
         width: 357.5px;
-    }
-
-    /* images */
-    .pet-container1:hover, .pet-container2:hover, .pet-container3:hover {
-        transform: scale(1.1);
     }
 
     .pet-container1, .pet-container2, .pet-container3 {
