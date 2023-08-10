@@ -10,12 +10,12 @@
 <body>
     <a id="'top"></a>
  
-    <!--navgation-->
+    <!-- top navgation -->
     <ul class="nav">
 
         <div class="logo-nav">
             <!-- left(image) -->
-            <li><a href="index.html"><img src="Assets/logo.png" id="logo" align="middle"><b id="logoTitle">County Animal Care</a></b></li>
+            <li><a href="index.html" class="logoT"><img src="Assets/logo.png" id="logo" align="middle"><b id="logoTitle">County Animal Care</a></b></li>
         </div>
 
         <div class="links-nav">
@@ -30,14 +30,12 @@
 
     <!-- Header -->
     <div class="welcome-container">
-        <div class="welcome">
-            <img src="Assets/logo.png" id="logoL" align="middle"><b>County Animal Care</b>
-        </div>
+        <img src="Assets/logo.png" id="logoL" align="middle"><b>County Animal Care</b>
     </div>
 
-    <!-- Genral Company Info -->
+    <!-- General Company Info -->
     <div class="info-container">
-        <div>
+        <div class="animal-flex">
             <img src="../Assets/info-block-img.jpg" id="animals">
         </div>
 
@@ -48,22 +46,72 @@
         </div>
     </div>
 
-    <br>
+    <br><br><br>
     
     <!-- Options -->
     <div class="pet-flex">
-        <div class="pet-container1">
-            <b>Donate</b>
+
+        <div class="image-holder">
+            <a href="#top">
+                <div class="pet-container1">
+                    <b>DONATE</b>
+                </div>
+            </a>
         </div>
 
-        <div class="pet-container2">
-            <b>Adopt</b>
+        <div class="image-holder">
+            <a href="#top">
+                <div class="pet-container2">
+                    <b>ADOPT</b>
+                </div>
+            </a>
         </div>
 
-        <div class="pet-container3">
-            <b>Lost Pets</b>
+        <div class="image-holder">
+            <a href="#top">
+                <div class="pet-container3">
+                    <b>LOST PETS</b>
+                </div>
+            </a>
         </div>
     </div>
+
+    <br><br><br>
+
+    <!-- Contact Form -->
+    <div class="pet-flex">
+        <form class="contact" action="#top">
+            <h2>Interested? Get in Touch</h2>
+            <input type="text" id="fname" name="fname" placeholder="First Name" required>
+            <input type="text" id="lname" name="lname" placeholder="Last Name" required><br><br>
+
+            <input type="text" id="email" name="email" placeholder="Email" required>
+            <input type="tel" id="phone" name="phone" placeholder="Phone Number"><br><br>
+
+            <textarea name="message" placeholder="Type your message here"></textarea>
+
+            <div class="subButton"><input type="submit" id="button" value="Submit"></div>
+        </form>
+    </div>
+    <br><br>
+
+    <!-- bottom navgation -->
+    <ul class="bottom-nav">
+
+        <div class="logo-nav">
+            <!-- left(image) -->
+            <li><a href="index.html" class="logoT"><img src="Assets/logo.png" id="logo" align="middle"><b id="logoTitle">County Animal Care</a></b></li>
+        </div>
+
+        <div class="links-nav">
+            <!-- links -->
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#top">Our Story</a></li>
+            <li><a href="#top">Contact</a></li>
+            <li><a href="#top">Blog</a></li>
+        </div>
+
+    </ul>
 
 </body>
 </html>
