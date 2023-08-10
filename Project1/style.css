@@ -272,3 +272,20 @@ textarea {
     background-color: white;
     height: 500px;
 }
+
+.topnav {
+    overflow: hidden;
+    background-color: #E5E5E5;
+    position: relative;
+}
+
+.topnav #myLinks {
+    display: none;
+}
+
+.topnav a {
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    display: none;
+}
