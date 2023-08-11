@@ -318,6 +318,10 @@ textarea {
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
     }
 
+    #logoTitle {
+        font-size: 25px;
+    }
+
     nav.active {
         left: 0;
         text-decoration: none;
