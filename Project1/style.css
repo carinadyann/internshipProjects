@@ -35,10 +35,11 @@ li a:hover, .active {
 }
 
 .bottom-nav {
+    display: flex;
     background-color: #E5E5E5;
 }
 
-.links-nav {
+.links-nav, .links-nav-b {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -76,10 +77,6 @@ h2 {
     flex: 100%;
 }
 
-p {
-    padding: 20px;
-}
-
 /* container */
 .welcome-container {
     display: flex;
@@ -109,6 +106,9 @@ p {
     background-color: #E5E5E5;
     width: 100%;
     font-size: 20px;
+    padding: 20px;
+    padding: 20px;
+    margin: 0;
 }
 
 .pet-flex {
@@ -268,24 +268,74 @@ textarea {
 
 /* mobile menu containers */
 .mobile-container {
-    max-width: 480px;
-    background-color: white;
-    height: 500px;
-}
-
-.topnav {
-    overflow: hidden;
-    background-color: #E5E5E5;
-    position: relative;
-}
-
-.topnav #myLinks {
     display: none;
+    padding: 5px;
 }
 
-.topnav a {
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 15px;
-    display: none;
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: black;
+}
+
+@media only screen and (max-width: 768px) {
+    .links-nav {
+        position: fixed;
+        left: -100%;
+        top: 5rem;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .links-nav.active {
+        left: 0;
+    }
+
+    a {
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: black;
+    }
+
+    a:hover {
+        opacity: black;
+    }
+
+    .logo-nav {
+        justify-content: center;
+    }
+
+    .mobile-container.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-container.active .bar:nth-child(1) {
+        transform: translatey(8px) rotate(45deg);
+    }
+
+    .mobile-container.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .mobile-container {
+        display: block;
+        cursor: pointer;
+    }
+
+    /* bottom navigation */
+    .bottom-nav {
+        flex-direction: column;
+    }
+
+    .links-nav-b {
+        flex-direction: column;
+    }
 }

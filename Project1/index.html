@@ -13,9 +13,7 @@
     <!-- top navgation -->
     <ul class="nav">
 
-        <!--<div media="screen and (max-width: 663px)" class="mobile-container"></div>-->
-
-        <div media="screen and (max-width: 1600px)" class="logo-nav">
+        <div class="logo-nav">
             <!-- left(image) -->
             <li><a href="index.html" class="logoT"><img src="Assets/logo.png" id="logo" align="middle"><b id="logoTitle">County Animal Care</a></b></li>
         </div>
@@ -26,6 +24,12 @@
             <li><a href="#top">Our Story</a></li>
             <li><a href="#top">Contact</a></li>
             <li><a href="#top">Blog</a></li>
+        </div>
+
+        <div class="mobile-container">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
 
     </ul>
@@ -107,7 +111,7 @@
             <li><a href="index.html" class="logoT"><img src="Assets/logo.png" id="logo" align="middle"><b id="logoTitle">County Animal Care</a></b></li>
         </div>
 
-        <div class="links-nav">
+        <div class="links-nav-b">
             <!-- links -->
             <li><a href="index.html">Home</a></li>
             <li><a href="#top">Our Story</a></li>
@@ -116,6 +120,29 @@
         </div>
 
     </ul>
+
+    <script>
+        // creating hamburger menu
+        const mobileContainer = document.querySelector(".mobile-container");
+        const nav = document.querySelector(".link-nav");
+
+        mobileContainer.addEventListener("click", mobileMenu);
+
+        function mobileMenu() {
+            mobileContainer.classList.toggle("active");
+            nav.classList.toggle("active");
+        }
+
+        // closes hamburger menu when item is clicked
+        const navLink = document.querySelectorAll(".link-nav");
+
+        navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+        function closeMenu() {
+            mobileContainer.classList.remove("active");
+            nav.classList.remove("active");
+        }
+    </script>
 
 </body>
 </html>
