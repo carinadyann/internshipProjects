@@ -1,4 +1,5 @@
 Resources:
+
 https://openjsf.org/
 
 https://javascriptbook.com/code/
