@@ -1,0 +1,71 @@
+body {
+    background-color: #F2FFF5;
+    margin: 0px;
+}
+
+header {
+    display: flex;
+}
+
+/* navigation */
+.topnav {
+    display: flex;
+    background-color: white;
+    padding: 10px;
+    width: 100%;
+    height: 75px;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* images */
+.logo {
+    width: 75px;
+}
+
+.createLogo {
+    width: 30px;
+    height: 30px;
+}
+
+.vProfile {
+    width: 150px;
+}
+
+/* text */
+#logoTitle {
+    font-size: 24px;
+    color: black;
+}
+
+#name {
+    font-weight: 900;
+    font-size: 24px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* containers */
+.villagers-flex, .villagers {
+    display: flex;
+    gap: 78px;
+    margin: 20px;
+}
+
+.villagers {
+    background-color: #B2EFBE;
+    border-radius: 25px;
+    padding: 10px;
+    width: fit-content;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.villagers-grid {
+    display: grid;
+    grid-gap: 5px;
+    padding: 10px;
+}
