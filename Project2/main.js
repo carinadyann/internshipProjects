@@ -1,4 +1,21 @@
 // villager content setup
+class Villager {
+    constructor(
+        img_ref = "",
+        name = "Unknown",
+        type = "Unknown",
+        personality = "Unknown",
+        gifted = "Yes",
+        boxes = "No"
+    ) {
+        this.img_ref = villagerImg.get(name);
+        this.name = name;
+        this.type = type;
+        this.personality = personality;
+        this.gifted = gifted;
+        this.boxes = boxes;
+    }
+}
 
 var villagerImg = new Map([
     ["Anhka", "/Assets/ankha.png"],
@@ -95,7 +112,33 @@ function updateGrid() {
     });
 }
 
+function addNewVillager() {
+    const newVillager = new Object();
+    newVillager.name = document.getElementById(""); // not done
+
+    updateGrid();
+}
+
 updateGrid();
+
+// modal setup
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("modalBtn");
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+}
 
 // accordian animation setup
 var acc = document.getElementsByClassName("accordian");
@@ -106,29 +149,10 @@ for (i = 0; acc.length; i++) {
         this.classList.toggle("active");
 
         var panel = this.nextElementSibling;
-        if(panel.style.display === "block") {
+        if (panel.style.display === "block") {
             panel.style.display = "none";
         } else {
             panel.style.display = "block";
         }
     });
-}
-
-// modal setup
-var modal = document.getElementById("myModal");
-var btn = document.getElementById("modalBtn");
-var span = document.getElementsByClassName("close")[0];
-
-btn.onclick = function(){
-    modal.style.display = "block";
-}
-
-span.onclick = function(){
-    modal.style.display = "none";
-}
-
-window.onclick = function(event){
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
 }

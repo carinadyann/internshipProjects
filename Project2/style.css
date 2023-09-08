@@ -90,6 +90,7 @@ a {
 
 #villagers-grid {
     display: flex;
+    flex-wrap: wrap;
     padding: 10px;
 }
 
@@ -153,6 +154,8 @@ a {
     margin: auto;
     padding: 20px;
     width: 80%;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .close {
@@ -166,4 +169,16 @@ a {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* form */
+.addVillager {
+    display: flex;
+}
+
+#subBtn {
+    border: none;
+    background-color: #B2EFBE;
+    margin: auto;
+    padding: 8px;
 }

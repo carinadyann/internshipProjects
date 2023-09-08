@@ -23,8 +23,15 @@
             <div id="myModal" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
-                    <p>this is a test</p>
-                    <form></form>
+                    <form action="javascript: addNewVillager()" class="addVillager">
+                        <label for="name">Name: </label>
+                        <select name="name" id="vname">
+                            <option value="ankha">Ankha</option>
+                            <option value="apollo">Apollo</option>
+                        </select>
+
+                        <input type="submit" id="subBtn" value="Submit">
+                    </form>
                 </div>
             </div>
         </nav>
