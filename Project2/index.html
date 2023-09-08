@@ -6,7 +6,6 @@
 
     <title>Adopt A Villager</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
 </head>
 <body>
     <a id="top"></a>
@@ -17,24 +16,102 @@
                 <span id="logoTitle">Adopt a Villager</span>
                 <img src="Assets/logo.png" class="logo" align="middle">
             </a>
-            <a>
+            <button id="modalBtn">
                 <img src="Assets/createicon.png" class="createLogo" align="middle">
-            </a>
+            </button>
+            <!-- modal section -->
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>this is a test</p>
+                    <form></form>
+                </div>
+            </div>
         </nav>
     </header>
     
-    <div class="vilagers-flex">
-        <div class="villagers">
-            <div class="villagers-grid">
-                <div><img src="Assets/ankha.png" class="vProfile"></div>
-                <div id="name">Ankha</div>
-                <div>Type: <span id="type">Cat</span></div>
-                <div>Personality: <span id="personality">Snooty</span></div>
-                <div>Gifted: <span id="gifted">Yes</span></div>
-                <div>Posted By: <span id="user">username</span></div>
+    <div class="villagers-flex">
+        <!-- filter section -->
+        <div class="filter-container">
+            <div id="filterTitle">Filter:</div>
+            <button class="accordian">Personality</button>
+            <div class="panel">
+                <form>
+                    <label for="jock">Jock</label>
+                    <input type="checkbox" id="jock" name="jock" value="Jock"><br>
+                    <label for="sisterly">Sisterly</label>
+                    <input type="checkbox" id="sisterly" name="sisterly" value="Sisterly"><br>
+                    <label for="normal">Normal</label>
+                    <input type="checkbox" id="normal" name="normal" value="Normal"><br>
+                    <label for="peppy">Peppy</label>
+                    <input type="checkbox" id="peppy" name="peppy" value="Peppy"><br>
+                    <label for="lazy">Lazy</label>
+                    <input type="checkbox" id="lazy" name="lazy" value="Lazy"><br>
+                    <label for="snooty">Snooty</label>
+                    <input type="checkbox" id="snooty" name="snooty" value="Snooty"><br>
+                    <label for="cranky">Cranky</label>
+                    <input type="checkbox" id="Cranky" name="cranky" value="Cranky"><br>
+                    <label for="smug">Smug</label>
+                    <input type="checkbox" id="smug" name="smug" value="Smug"><br>
+                </form>
+                
+            </div>
+
+            <button class="accordian">Type</button>
+            <div class="panel">
+                <form>
+                    <label for="cat">Cat</label>
+                    <input type="checkbox" id="cat" name="cat" value="Cat"><br>
+                    <label for="eagle">Eagle</label>
+                    <input type="checkbox" id="eagle" name="eagle" value="Eagle"><br>
+                    <label for="hamster">Hamster</label>
+                    <input type="checkbox" id="hamster" name="hamster" value="Hamster"><br>
+                    <label for="wolf">Wolf</label>
+                    <input type="checkbox" id="wolf" name="wolf" value="Wolf"><br>
+                    <label for="dog">Dog</label>
+                    <input type="checkbox" id="dog" name="dog" value="Dog"><br>
+                    <label for="deer">Deer</label>
+                    <input type="checkbox" id="deer" name="deer" value="Deer"><br>
+                    <label for="alligator">Alligator</label>
+                    <input type="checkbox" id="alligator" name="alligator" value="Alligator"><br>
+                    <label for="cub">Cub</label>
+                    <input type="checkbox" id="cub" name="cub" value="Cub"><br>
+                    <label for="elephant">Elephant</label>
+                    <input type="checkbox" id="elephant" name="elephant" value="Elephant"><br>
+                    <label for="squirrel">Squirrel</label>
+                    <input type="checkbox" id="squirrel" name="squirrel" value="Squirrel"><br>
+                    <label for="bear">Bear</label>
+                    <input type="checkbox" id="bear" name="bear" value="Bear"><br>
+                    <label for="penguin">Penguin</label>
+                    <input type="checkbox" id="penguin" name="penguin" value="Penguin"><br>
+                </form>
+            </div>
+
+            <button class="accordian">Gifted</button>
+            <div class="panel">
+                <form>
+                    <label for="gifted">Gifted</label>
+                    <input type="checkbox" id="gifted" name="gifted" value="Gifted"><br>
+                    <label for="ungifted">Ungifted</label>
+                    <input type="checkbox" id="ungifted" name="ungifted" value="Ungifted"><br>
+                </form>
+            </div>
+
+            <button class="accordian">In Boxes</button>
+            <div class="panel">
+                <form>
+                    <label for="boxes">In Boxes</label>
+                    <input type="checkbox" id="boxes" name="boxes" value="In Boxes"><br>
+                    <label for="notboxes">Not In Boxes</label>
+                    <input type="checkbox" id="notboxes" name="notboxes" value="Not In Boxes"><br>
+                </form>
             </div>
         </div>
+
+        <!-- create villager list -->
+        <div id="villagers-grid"></div>
     </div>
 
+    <script src="main.js"></script>
 </body>
 </html>
