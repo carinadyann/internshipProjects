@@ -50,17 +50,17 @@
                         <p>Personality: <span id="personalityAuto"></span></p><br>
                         <p>Gifted? </p>
                         <div>
-                            <input type="radio" id="gifted" name="gifted" value="Yes">
+                            <input type="radio" id="gifted" name="gifted" value="Yes" required>
                             <label for="gifted">Yes</label>
-                            <input type="radio" id="ungifted" name="gifted" value="No">
+                            <input type="radio" id="ungifted" name="gifted" value="No" required>
                             <label for="ungifted">No</label>
                         </div>
                         <br>
                         <p>In Boxes? </p>
                         <div>
-                            <input type="radio" id="boxes" name="boxes" value="Yes">
+                            <input type="radio" id="boxes" name="boxes" value="Yes" required>
                             <label for="gifted">Yes</label>
-                            <input type="radio" id="notboxes" name="boxes" value="No">
+                            <input type="radio" id="notboxes" name="boxes" value="No" required>
                             <label for="ungifted">No</label>
                         </div>
                         <br>
@@ -77,95 +77,94 @@
         <label>Sort By: </label>
         <select name="sort" id="sortbar" onChange="sortVillagers(this)">
             <option value="ascending">A-Z</option>
-            <option value="decending">Z-A</option>
+            <option value="descending">Z-A</option>
             <option value="newest">Newest</option>
             <option value="oldest">Oldest</option>
             <option value="typeA">Type [A-Z]</option>
             <option value="typeD">Type [Z-A]</option>
         </select>
-        <input type="submit" id="subBtn" value="Clear">
-    </div>
-    
+    </div><br>
+
     <div class="villagers-flex">
         <!-- filter section -->
         <div class="filter-container">
             <div id="filterTitle">Filter:</div>
             <button class="accordian">Personality</button>
             <div class="panel">
-                <form>
-                    <label for="jock">Jock</label>
-                    <input type="checkbox" id="jock" name="jock" value="Jock"><br>
-                    <label for="sisterly">Sisterly</label>
-                    <input type="checkbox" id="sisterly" name="sisterly" value="Sisterly"><br>
-                    <label for="normal">Normal</label>
-                    <input type="checkbox" id="normal" name="normal" value="Normal"><br>
-                    <label for="peppy">Peppy</label>
-                    <input type="checkbox" id="peppy" name="peppy" value="Peppy"><br>
-                    <label for="lazy">Lazy</label>
-                    <input type="checkbox" id="lazy" name="lazy" value="Lazy"><br>
-                    <label for="snooty">Snooty</label>
-                    <input type="checkbox" id="snooty" name="snooty" value="Snooty"><br>
-                    <label for="cranky">Cranky</label>
-                    <input type="checkbox" id="Cranky" name="cranky" value="Cranky"><br>
-                    <label for="smug">Smug</label>
-                    <input type="checkbox" id="smug" name="smug" value="Smug"><br>
+                <form onclick="checkSelected('personality')">
+                    <input type="radio" id="jock" name="vpersonality" value="Jock">
+                    <label for="jock">Jock</label><br>
+                    <input type="radio" id="sisterly" name="vpersonality" value="Sisterly">
+                    <label for="sisterly">Sisterly</label><br>
+                    <input type="radio" id="normal" name="vpersonality" value="Normal">
+                    <label for="normal">Normal</label><br>
+                    <input type="radio" id="peppy" name="vpersonality" value="Peppy">
+                    <label for="peppy">Peppy</label><br>
+                    <input type="radio" id="lazy" name="vpersonality" value="Lazy">
+                    <label for="lazy">Lazy</label><br>
+                    <input type="radio" id="snooty" name="vpersonality" value="Snooty">
+                    <label for="snooty">Snooty</label><br>
+                    <input type="radio" id="Cranky" name="vpersonality" value="Cranky">
+                    <label for="cranky">Cranky</label><br>
+                    <input type="radio" id="smug" name="vpersonality" value="Smug">
+                    <label for="smug">Smug</label><br>
                 </form>
                 
             </div>
 
             <button class="accordian">Type</button>
             <div class="panel">
-                <form>
-                    <label for="cat">Cat</label>
-                    <input type="checkbox" id="cat" name="cat" value="Cat"><br>
-                    <label for="eagle">Eagle</label>
-                    <input type="checkbox" id="eagle" name="eagle" value="Eagle"><br>
-                    <label for="hamster">Hamster</label>
-                    <input type="checkbox" id="hamster" name="hamster" value="Hamster"><br>
-                    <label for="wolf">Wolf</label>
-                    <input type="checkbox" id="wolf" name="wolf" value="Wolf"><br>
-                    <label for="dog">Dog</label>
-                    <input type="checkbox" id="dog" name="dog" value="Dog"><br>
-                    <label for="deer">Deer</label>
-                    <input type="checkbox" id="deer" name="deer" value="Deer"><br>
-                    <label for="alligator">Alligator</label>
-                    <input type="checkbox" id="alligator" name="alligator" value="Alligator"><br>
-                    <label for="cub">Cub</label>
-                    <input type="checkbox" id="cub" name="cub" value="Cub"><br>
-                    <label for="elephant">Elephant</label>
-                    <input type="checkbox" id="elephant" name="elephant" value="Elephant"><br>
-                    <label for="squirrel">Squirrel</label>
-                    <input type="checkbox" id="squirrel" name="squirrel" value="Squirrel"><br>
-                    <label for="bear">Bear</label>
-                    <input type="checkbox" id="bear" name="bear" value="Bear"><br>
-                    <label for="penguin">Penguin</label>
-                    <input type="checkbox" id="penguin" name="penguin" value="Penguin"><br>
+                <form onclick="checkSelected('type')">
+                    <input type="radio" id="cat" name="vtype" value="Cat">
+                    <label for="cat">Cat</label><br>
+                    <input type="radio" id="eagle" name="vtype" value="Eagle">
+                    <label for="eagle">Eagle</label><br>
+                    <input type="radio" id="hamster" name="vtype" value="Hamster">
+                    <label for="hamster">Hamster</label><br>
+                    <input type="radio" id="wolf" name="vtype" value="Wolf">
+                    <label for="wolf">Wolf</label><br>
+                    <input type="radio" id="dog" name="vtype" value="Dog">
+                    <label for="dog">Dog</label><br>
+                    <input type="radio" id="deer" name="vtype" value="Deer">
+                    <label for="deer">Deer</label><br>
+                    <input type="radio" id="alligator" name="vtype" value="Alligator">
+                    <label for="alligator">Alligator</label><br>
+                    <input type="radio" id="cub" name="vtype" value="Cub">
+                    <label for="cub">Cub</label><br>
+                    <input type="radio" id="elephant" name="vtype" value="Elephant">
+                    <label for="elephant">Elephant</label><br>
+                    <input type="radio" id="squirrel" name="vtype" value="Squirrel">
+                    <label for="squirrel">Squirrel</label><br>
+                    <input type="radio" id="bear" name="vtype" value="Bear">
+                    <label for="bear">Bear</label><br>
+                    <input type="radio" id="penguin" name="vtype" value="Penguin">
+                    <label for="penguin">Penguin</label><br>
                 </form>
             </div>
 
             <button class="accordian">Gifted</button>
             <div class="panel">
-                <form>
-                    <label for="gifted">Gifted</label>
-                    <input type="checkbox" id="gifted" name="gifted" value="Gifted"><br>
-                    <label for="ungifted">Ungifted</label>
-                    <input type="checkbox" id="ungifted" name="ungifted" value="Ungifted"><br>
+                <form onclick="checkSelected('gifted')">
+                    <input type="radio" id="gifted" name="vgifted" value="Gifted">
+                    <label for="gifted">Gifted</label><br>
+                    <input type="radio" id="ungifted" name="vgifted" value="Ungifted">
+                    <label for="ungifted">Ungifted</label><br>
                 </form>
             </div>
 
             <button class="accordian">In Boxes</button>
             <div class="panel">
-                <form>
-                    <label for="boxes">In Boxes</label>
-                    <input type="checkbox" id="boxes" name="boxes" value="In Boxes"><br>
-                    <label for="notboxes">Not In Boxes</label>
-                    <input type="checkbox" id="notboxes" name="notboxes" value="Not In Boxes"><br>
+                <form onclick="checkSelected('boxes')">
+                    <input type="radio" id="boxes" name="vboxes" value="In Boxes">
+                    <label for="boxes">In Boxes</label><br>
+                    <input type="radio" id="notboxes" name="vboxes" value="Not In Boxes">
+                    <label for="notboxes">Not In Boxes</label><br>
                 </form>
             </div>
         </div>
 
         <!-- create villager list -->
-        <div id="villagers-grid"></div>
+        <div id="villagers-grid" onload="checkSelected('all')"></div>
     </div>
 
     <script src="main.js"></script>

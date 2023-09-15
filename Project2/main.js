@@ -6,7 +6,8 @@ class Villager {
         type = "Unknown",
         personality = "Unknown",
         gifted = "Yes",
-        boxes = "No"
+        boxes = "No",
+        time_stamp = Date.now()
     ) {
         this.img_ref = "/Assets/ankha.png";
         this.name = name;
@@ -14,6 +15,7 @@ class Villager {
         this.personality = personality;
         this.gifted = gifted;
         this.boxes = boxes;
+        this.time_stamp = Date.now();
     }
 }
 
@@ -56,7 +58,8 @@ let arrayVillagers = [
         type: "Squirrel",
         personality: "Snooty",
         gifted: "Yes",
-        boxes: "Yes" 
+        boxes: "Yes" ,
+        time_stamp: Date.now()
     },
     {
         img_ref: villagerDB.get("Roald").img_ref_indv,
@@ -64,7 +67,8 @@ let arrayVillagers = [
         type: "Penguin",
         personality: "Jock",
         gifted: "No",
-        boxes: "Yes" 
+        boxes: "Yes", 
+        time_stamp: Date.now()
     },
     {
         img_ref: villagerDB.get("Punchy").img_ref_indv,
@@ -72,7 +76,8 @@ let arrayVillagers = [
         type: "Cat",
         personality: "Lazy",
         gifted: "Yes",
-        boxes: "No" 
+        boxes: "No",
+        time_stamp: Date.now() 
     },
 ]
 
@@ -80,7 +85,11 @@ let elGrid = document.getElementById("villagers-grid");
 
 function createVillagerCard(villager) {
     const villagerCard = document.createElement("div");
-    //villagerCard.classList.add('villager-card')
+    villagerCard.classList.add('villager-card');
+    villagerCard.setAttribute("data-personality", villager.personality);
+    villagerCard.setAttribute("data-type", villager.type);
+    villagerCard.setAttribute("data-gifted", villager.gifted); //needs to be changed
+    villagerCard.setAttribute("data-boxes", villager.boxes); //needs to be changed
 
     const el_image = document.createElement("img");
     el_image.classList.add("vProfile");
@@ -122,7 +131,7 @@ function createVillagerCard(villager) {
 function updateGrid() {
     elGrid.innerHTML = "";
     arrayVillagers.forEach((villager) => {
-        createVillagerCard(villager)
+        createVillagerCard(villager);
     });
 }
 
@@ -159,23 +168,97 @@ function updateTraits(sel) {
 }
 
 function sortVillagers(sel) {
-    switch(sel) {
-        case ascending:
-            arrayVillagers.sort((p1, p2) => (p1.name > p2.name ? 1 : (p1.name > p2.name) ? -1 : 0));
-        case descending:
+    console.log(sel.options[sel.selectedIndex].value);
+    switch(String(sel.options[sel.selectedIndex].value)) {
+        case "ascending":
+            arrayVillagers.sort((a, b) => {
+                let fa = a.name.toLowerCase();
+                let fb = b.name.toLowerCase();
 
-        case newest:
+                if(fa < fb) {
+                    return -1;
+                }
+                else if(fa > fb) {
+                    return 1;
+                }
+                 else {
+                     return 0;
+                }
+            });
+        case "descending":
+            arrayVillagers.sort((a, b) => {
+                let fa = a.name.toLowerCase();
+                let fb = b.name.toLowerCase();
 
-        case oldest:
+                if(fa < fb) {
+                    return -1;
+                }
+                else if(fa > fb) {
+                    return 1;
+                }
+                else {
+                    return 0;
+                }
+            });
+            arrayVillagers.reverse();
+        case "newest":
+            arrayVillagers.sort((a, b) => {
+                return b.time_stamp - a.time_stamp;
+            });
+        case "oldest":
+            arrayVillagers.sort((a, b) => {
+                return b.time_stamp - a.time_stamp;
+            });
+            arrayVillagers.reverse();
+        case "typeA":
+            arrayVillagers.sort((a, b) => {
+                let fa = a.type.toLowerCase();
+                let fb = b.type.toLowerCase();
 
-        case typeA:
+                if(fa < fb) {
+                    return -1;
+                }
+                else if(fa > fb) {
+                    return 1;
+                }
+                else {
+                    return 0;
+                }
+            });
+        case "typeD":
+            arrayVillagers.sort((a, b) => {
+                let fa = a.type.toLowerCase();
+                let fb = b.type.toLowerCase();
 
-        case typeD:
-
+                if(fa < fb) {
+                    return -1;
+                }
+                else if(fa > fb) {
+                    return 1;
+                }
+                else {
+                    return 0;
+                }
+            });
+            arrayVillagers.reverse();
         default:
+            // arrayVillagers.sort((a, b) => {
+            //     let fa = a.name.toLowerCase();
+            //     let fb = b.name.toLocaleLowerCase();
 
+            //     if(fa < fb) {
+            //         return -1;
+            //     }
+            //     else if(fa > fb) {
+            //         return 1;
+            //     }
+            //     else {
+            //         return 0;
+            //     }
+            // });
     }
     updateGrid();
+    console.log(arrayVillagers);
 }
 
 // modal setup
@@ -216,4 +299,97 @@ for (let i = 0; i < acc.length; i++) {
             panel.style.display = "block";
         }
     });
+}
+
+// filter
+function checkSelected(filter) {
+    //let card = document.getElementsByClassName('villager-card');
+    if (filter != "all") {
+        switch(filter) {
+            case "personality":
+                if(document.getElementById("jock").checked) {
+                    let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-personality='Jock'])");
+                    hiddenVillagers.forEach((hiddenVillager) => {
+                        hiddenVillager.classList.add('hidden');
+                    })
+                }
+                if(document.getElementById("sisterly").checked) {
+                    let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-personality='Sisterly'])");
+                    hiddenVillagers.forEach((hiddenVillager) => {
+                        hiddenVillager.classList.add('hidden');
+                    })
+                }
+                if(document.getElementById("normal").checked) {
+                    let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-personality='Normal'])");
+                    hiddenVillagers.forEach((hiddenVillager) => {
+                        hiddenVillager.classList.add('hidden');
+                    })
+                }
+                if(document.getElementById("peppy").checked) {
+                    let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-personality='Peppy'])");
+                    hiddenVillagers.forEach((hiddenVillager) => {
+                        hiddenVillager.classList.add('hidden');
+                    })
+                }
+                if(document.getElementById("lazy").checked) {
+                    let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-personality='Lazy'])");
+                    hiddenVillagers.forEach((hiddenVillager) => {
+                        hiddenVillager.classList.add('hidden');
+                    })
+                }
+                if(document.getElementById("snooty").checked) {
+                    let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-personality='Snooty'])");
+                    hiddenVillagers.forEach((hiddenVillager) => {
+                        hiddenVillager.classList.add('hidden');
+                    })
+                }
+                if(document.getElementById("cranky").checked) {
+                    let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-personality='Cranky'])");
+                    hiddenVillagers.forEach((hiddenVillager) => {
+                        hiddenVillager.classList.add('hidden');
+                    })
+                }
+                if(document.getElementById("smug").checked) {
+                    let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-personality='Smug'])");
+                    hiddenVillagers.forEach((hiddenVillager) => {
+                        hiddenVillager.classList.add('hidden');
+                    })
+                }
+            case "type":
+                if(document.getElementById("cat").checked) {
+                    let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-type='Cat'])");
+                    hiddenVillagers.forEach((hiddenVillager) => {
+                        hiddenVillager.classList.add('hidden');
+                    })
+                }
+            case "gifted":
+
+            case "boxes":
+        }
+        // if (filter == "personality") {
+        //     if(document.getElementById("jock").checked) {
+        //         let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-personality='Jock'])");
+        //         hiddenVillagers.forEach((hiddenVillager) => {
+        //             hiddenVillager.classList.add('hidden');
+        //         })
+        //         //this.card.style.display = "none";
+        //         // arrayVillagers.forEach((villager) => {
+        //         //     if (villager.personality == "Jock") {
+        //         //         this.card.style.display = "block";
+        //         //     } else {
+        //         //         this.card.style.display = "none";
+        //         //     }
+        //         // });
+        //     }
+        // }
+
+        if (filter == "type") {
+        }
+
+        if (filter == "gifted") {
+        }
+
+        if (filter == "boxes") {
+        }
+    }
 }

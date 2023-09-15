@@ -111,8 +111,8 @@ a {
     background-color: #EAEAEA;
     border-radius: 25px;
     margin: 30px 20px;
-    width: fit-content;
-    height: fit-content;
+    width: max-content;
+    height: max-content;
     padding: 15px;
 }
 
@@ -218,4 +218,8 @@ form select {
 
 #sorting select {
     width: max-content;
+}
+
+.hidden {
+    display: none;
 }
