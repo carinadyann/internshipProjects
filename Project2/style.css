@@ -64,6 +64,16 @@ a {
     padding: 5px;
 }
 
+#typeAuto, #personalityAuto {
+    text-decoration: none;
+}
+
+#create {
+    font-size: 40px;
+    text-align: center;
+    text-decoration: underline;
+}
+
 /* containers */
 .villagers-flex, .villagers {
     display: flex;
@@ -133,6 +143,7 @@ a {
 #modalBtn {
     border: none;
     background-color: white;
+    cursor: pointer;
 }
 
 .modal {
@@ -174,6 +185,9 @@ a {
 /* form */
 .addVillager {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
 }
 
 #subBtn {
@@ -181,4 +195,27 @@ a {
     background-color: #B2EFBE;
     margin: auto;
     padding: 8px;
+    cursor: pointer;
+}
+
+#vname {
+    width: max-content;
+}
+
+form label, form p {
+    font-size: 20px;
+}
+
+form select {
+    font-size: 15px;
+}
+
+/* sorting */
+#sorting {
+    float: right;
+    padding: 15px;
+}
+
+#sorting select {
+    width: max-content;
 }

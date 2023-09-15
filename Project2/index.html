@@ -7,7 +7,7 @@
     <title>Adopt A Villager</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="updateGrid()">
     <a id="top"></a>
 
     <header>
@@ -19,23 +19,72 @@
             <button id="modalBtn">
                 <img src="Assets/createicon.png" class="createLogo" align="middle">
             </button>
+
             <!-- modal section -->
             <div id="myModal" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
-                    <form action="javascript: addNewVillager()" class="addVillager">
+                    <h1 id="create">Create a New Villager</h1>
+                    <form action="javascript: addNewVillager()" class="addVillager" id="myForm">
                         <label for="name">Name: </label>
-                        <select name="name" id="vname">
-                            <option value="ankha">Ankha</option>
-                            <option value="apollo">Apollo</option>
-                        </select>
+                        <select name="name" id="vname" onChange="updateTraits(this)">
+                            <option value="Anhka">Ankha</option>
+                            <option value="Apollo">Apollo</option>
+                            <option value="Apple">Apple</option>
+                            <option value="Audie">Audie</option>
+                            <option value="Cherry">Cherry</option>
+                            <option value="Diana">Diana</option>
+                            <option value="Gayle">Gayle</option>
+                            <option value="Lucky">Lucky</option>
+                            <option value="Maple">Maple</option>
+                            <option value="Margie">Margie</option>
+                            <option value="Marshal">Marshal</option>
+                            <option value="Mint">Mint</option>
+                            <option value="Pekoe">Pekoe</option>
+                            <option value="Pinky">Pinky</option>
+                            <option value="Poppy">Poppy</option>
+                            <option value="Punchy">Punchy</option>
+                            <option value="Roald">Roald</option>
+                        </select><br>
+                        <p>Type: <span id="typeAuto"></span></p><br>
+                        <p>Personality: <span id="personalityAuto"></span></p><br>
+                        <p>Gifted? </p>
+                        <div>
+                            <input type="radio" id="gifted" name="gifted" value="Yes">
+                            <label for="gifted">Yes</label>
+                            <input type="radio" id="ungifted" name="gifted" value="No">
+                            <label for="ungifted">No</label>
+                        </div>
+                        <br>
+                        <p>In Boxes? </p>
+                        <div>
+                            <input type="radio" id="boxes" name="boxes" value="Yes">
+                            <label for="gifted">Yes</label>
+                            <input type="radio" id="notboxes" name="boxes" value="No">
+                            <label for="ungifted">No</label>
+                        </div>
+                        <br>
 
-                        <input type="submit" id="subBtn" value="Submit">
+                        <input type="submit" id="subBtn" value="Submit" onclick="updateGrid()">
                     </form>
                 </div>
             </div>
         </nav>
     </header>
+
+    <!-- sorting -->
+    <div id="sorting">
+        <label>Sort By: </label>
+        <select name="sort" id="sortbar" onChange="sortVillagers(this)">
+            <option value="ascending">A-Z</option>
+            <option value="decending">Z-A</option>
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+            <option value="typeA">Type [A-Z]</option>
+            <option value="typeD">Type [Z-A]</option>
+        </select>
+        <input type="submit" id="subBtn" value="Clear">
+    </div>
     
     <div class="villagers-flex">
         <!-- filter section -->
