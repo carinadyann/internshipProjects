@@ -88,8 +88,8 @@ function createVillagerCard(villager) {
     villagerCard.classList.add('villager-card');
     villagerCard.setAttribute("data-personality", villager.personality);
     villagerCard.setAttribute("data-type", villager.type);
-    villagerCard.setAttribute("data-gifted", villager.gifted); //needs to be changed
-    villagerCard.setAttribute("data-boxes", villager.boxes); //needs to be changed
+    villagerCard.setAttribute("data-gifted", villager.gifted);
+    villagerCard.setAttribute("data-boxes", villager.boxes);
 
     const el_image = document.createElement("img");
     el_image.classList.add("vProfile");
@@ -161,7 +161,7 @@ function addNewVillager() {
 }
 
 // select update
-function updateTraits(sel) {
+function autoFillTraits(sel) {
     var selected = String(sel.options[sel.selectedIndex].text);
     document.getElementById("typeAuto").innerHTML = villagerDB.get(selected).type_indv;
     document.getElementById("personalityAuto").innerHTML = villagerDB.get(selected).personality_indv;
@@ -301,95 +301,36 @@ for (let i = 0; i < acc.length; i++) {
     });
 }
 
-// filter
-function checkSelected(filter) {
-    //let card = document.getElementsByClassName('villager-card');
-    if (filter != "all") {
-        switch(filter) {
-            case "personality":
-                if(document.getElementById("jock").checked) {
-                    let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-personality='Jock'])");
-                    hiddenVillagers.forEach((hiddenVillager) => {
-                        hiddenVillager.classList.add('hidden');
-                    })
-                }
-                if(document.getElementById("sisterly").checked) {
-                    let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-personality='Sisterly'])");
-                    hiddenVillagers.forEach((hiddenVillager) => {
-                        hiddenVillager.classList.add('hidden');
-                    })
-                }
-                if(document.getElementById("normal").checked) {
-                    let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-personality='Normal'])");
-                    hiddenVillagers.forEach((hiddenVillager) => {
-                        hiddenVillager.classList.add('hidden');
-                    })
-                }
-                if(document.getElementById("peppy").checked) {
-                    let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-personality='Peppy'])");
-                    hiddenVillagers.forEach((hiddenVillager) => {
-                        hiddenVillager.classList.add('hidden');
-                    })
-                }
-                if(document.getElementById("lazy").checked) {
-                    let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-personality='Lazy'])");
-                    hiddenVillagers.forEach((hiddenVillager) => {
-                        hiddenVillager.classList.add('hidden');
-                    })
-                }
-                if(document.getElementById("snooty").checked) {
-                    let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-personality='Snooty'])");
-                    hiddenVillagers.forEach((hiddenVillager) => {
-                        hiddenVillager.classList.add('hidden');
-                    })
-                }
-                if(document.getElementById("cranky").checked) {
-                    let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-personality='Cranky'])");
-                    hiddenVillagers.forEach((hiddenVillager) => {
-                        hiddenVillager.classList.add('hidden');
-                    })
-                }
-                if(document.getElementById("smug").checked) {
-                    let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-personality='Smug'])");
-                    hiddenVillagers.forEach((hiddenVillager) => {
-                        hiddenVillager.classList.add('hidden');
-                    })
-                }
-            case "type":
-                if(document.getElementById("cat").checked) {
-                    let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-type='Cat'])");
-                    hiddenVillagers.forEach((hiddenVillager) => {
-                        hiddenVillager.classList.add('hidden');
-                    })
-                }
-            case "gifted":
+function applyFiltering() {
+    resetFilters();
+    filter = {};
 
-            case "boxes":
-        }
-        // if (filter == "personality") {
-        //     if(document.getElementById("jock").checked) {
-        //         let hiddenVillagers = document.querySelectorAll("div.villager-card:not([data-personality='Jock'])");
-        //         hiddenVillagers.forEach((hiddenVillager) => {
-        //             hiddenVillager.classList.add('hidden');
-        //         })
-        //         //this.card.style.display = "none";
-        //         // arrayVillagers.forEach((villager) => {
-        //         //     if (villager.personality == "Jock") {
-        //         //         this.card.style.display = "block";
-        //         //     } else {
-        //         //         this.card.style.display = "none";
-        //         //     }
-        //         // });
-        //     }
-        // }
+    $(".filters").each(function() {
+        filter[`${this.id}`] = $("input:checked", $(this)).val();
 
-        if (filter == "type") {
-        }
+    });
 
-        if (filter == "gifted") {
-        }
+    console.log(filter);
 
-        if (filter == "boxes") {
-        }
-    }
+    //console.log(filter['personalityFilter']);
+    //console.log(filter['typeFilter']);
+    //console.log(filter['giftedFilter']);
+    //console.log(filter['boxedFilter']);
+
+    //let hiddenVillagers = $(".villager-card[data-personality!=" + filter.personalityFilter + "][data-type!=" + filter.typeFilter + "][data-gifted!=" + filter.giftedFilter + "][data-boxes!=" + filter.boxesFilter + "]");
+
+    let hiddenVillagers = $(".villager-card");
+
+    console.log(filter.personalityFilter);
+
+    hiddenVillagers.filter("[data-personality != '" + filter.personalityFilter +"']");
+
+    console.log(hiddenVillagers);
+    
+    hiddenVillagers.addClass('hidden');
+
+}
+
+function resetFilters() {
+    $("div.villager-card").removeClass("hidden");
 }
